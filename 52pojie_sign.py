@@ -71,7 +71,7 @@ msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
 if not cookie:
     print('cookie为空')
-QYWX_AM = json.loads(QYWX_AM)
+QYWX_AM = json.dumps(QYWX_AM)
 wn = WxNotify(corpid=QYWX_AM['corpid'], corpsecret=QYWX_AM['corpsecret'], agentid=QYWX_AM['agentid'])
 wn.send('52破解签到信息', msg)
 
