@@ -1,11 +1,64 @@
 # -- coding: utf-8 --
 import requests
 from pyquery import PyQuery as pq
+import json
+
+
+class WxNotify:
+    def __init__(self, corpid, corpsecret, agentid):
+        self.corpid = corpid
+        self.corpsecret = corpsecret
+        self.agentid = agentid
+        self.access_token = self.__get_access_token(corpid, corpsecret)
+
+    def __get_access_token(self, corpid, corpsecret):
+        url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
+        params = {
+            'corpid': corpid,
+            'corpsecret': corpsecret
+        }
+        resp = requests.get(url, params=params)
+        resp.raise_for_status()
+        resp_json = resp.json()
+        if 'access_token' in resp_json.keys():
+            return resp_json['access_token']
+        else:
+            raise Exception('Please check if corpid and corpsecret are correct \n' + resp.text)
+
+    def send(self, title, text):
+        url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=' + self.access_token
+        data = {
+            "touser": "@all",
+            "msgtype": "mpnews",
+            "agentid": self.agentid,
+            "mpnews": {
+                "articles": [
+                    {
+                        "title": title,
+                        "thumb_media_id": "2joztOSTb5VDw-EhrxzvlDZLyPcfqq7j7gh1N51z7evE",
+                        "author": "",
+                        "content_source_url": "",
+                        "content": text,
+                        "digest": text
+                    }
+                ]
+            },
+            "safe": 0,
+            "enable_id_trans": 0,
+            "enable_duplicate_check": 0,
+            "duplicate_check_interval": 1800
+        }
+        resp = requests.post(url, data=json.dumps(data))
+        resp.raise_for_status()
+        return resp.json()
+    
 
 cookie=""
 if not cookie:
     cookie = input("cookie")
-sckey = input("sckey")
+QYWX_AM = ""
+if not QYWX_AM:
+    QYWX_AM = input("QYWX_AM")
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 headers = {'cookie':cookie,
@@ -18,8 +71,7 @@ msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
 if not cookie:
     print('cookie为空')
-if sckey:
-    send_url = f'https://sc.ftqq.com/{sckey}.send?text={msg}'
-    requests.get(send_url)
+wn = WxNotify(corpid=QYWX_AM['corpid'], corpsecret=QYWX_AM['corpsecret'], agentid=QYWX_AM['agentid'])
+wn.send('52破解签到信息', msg)
 
 
