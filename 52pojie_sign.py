@@ -5,10 +5,11 @@ import json
 
 
 class WxNotify:
-    def __init__(self, corpid, corpsecret, agentid):
+    def __init__(self, corpid, corpsecret, agentid,media_id):
         self.corpid = corpid
         self.corpsecret = corpsecret
         self.agentid = agentid
+        self.media_id = media_id
         self.access_token = self.__get_access_token(corpid, corpsecret)
 
     def __get_access_token(self, corpid, corpsecret):
@@ -35,7 +36,7 @@ class WxNotify:
                 "articles": [
                     {
                         "title": title,
-                        "thumb_media_id": "2joztOSTb5VDw-EhrxzvlDZLyPcfqq7j7gh1N51z7evE",
+                        "thumb_media_id":self.media_id,
                         "author": "",
                         "content_source_url": "",
                         "content": text,
@@ -72,7 +73,7 @@ print(msg)
 if not cookie:
     print('cookie为空')
 # QYWX_AM = json.loads(QYWX_AM)
-wn = WxNotify(corpid=QYWX_AM["corpid"], corpsecret=QYWX_AM["corpsecret"], agentid=QYWX_AM["agentid"])
+wn = WxNotify(corpid=QYWX_AM["corpid"], corpsecret=QYWX_AM["corpsecret"], agentid=QYWX_AM["agentid"],media_id=QYWX_AM["media_id"])
 wn.send('52破解签到信息', msg)
 
 
