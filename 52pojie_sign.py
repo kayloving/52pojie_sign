@@ -69,10 +69,14 @@ req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
-QYWX_AM = json.loads(QYWX_AM)
+QYWX_AM = QYWX_AM.split(',')
+corpid = QYWX_AM[0]
+corpsecret = QYWX_AM[1]
+agentid = QYWX_AM[2]
+media_id = QYWX_AM[3]
 if not cookie:
     print('cookie为空')
-wn = WxNotify(corpid=QYWX_AM['corpid'], corpsecret=QYWX_AM['corpsecret'], agentid=QYWX_AM['agentid'],media_id=QYWX_AM['media_id'])
+wn = WxNotify(corpid=corpid, corpsecret=corpsecret, agentid=agentid,media_id=media_id)
 wn.send('52破解签到信息', msg)
 
 
