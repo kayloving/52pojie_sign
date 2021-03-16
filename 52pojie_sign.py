@@ -70,6 +70,7 @@ req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
+print(QYWX_AM)
 if not cookie:
     print('cookie为空')
 corpid,corpsecret,agentid,media_id = QYWX_AM
