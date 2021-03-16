@@ -71,10 +71,10 @@ doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
 print(QYWX_AM)
-if not cookie:
-    print('cookie为空')
-corpid,corpsecret,agentid,media_id = QYWX_AM
-wn = WxNotify(corpid=corpid, corpsecret=corpsecret, agentid=agentid,media_id=media_id)
-wn.send('52破解签到信息', msg)
+# if not cookie:
+#     print('cookie为空')
+# corpid,corpsecret,agentid,media_id = QYWX_AM
+# wn = WxNotify(corpid=corpid, corpsecret=corpsecret, agentid=agentid,media_id=media_id)
+# wn.send('52破解签到信息', msg)
 
 
