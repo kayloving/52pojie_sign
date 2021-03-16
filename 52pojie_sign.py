@@ -70,10 +70,10 @@ doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
 QYWX_A = QYWX_AM.split(';')
-corpid = QYWX_A[0]
-corpsecret = QYWX_A[1]
-agentid = QYWX_A[2]
-media_id = QYWX_A[3]
+corpid = ${QYWX_A[0]}
+corpsecret =${QYWX_A[1]}
+agentid = ${QYWX_A[2]}
+media_id = ${QYWX_A[3]}
 if not cookie:
     print('cookie为空')
 wn = WxNotify(corpid=corpid, corpsecret=corpsecret, agentid=agentid,media_id=media_id)
