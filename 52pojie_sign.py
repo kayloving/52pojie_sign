@@ -6,10 +6,6 @@ import os
 
 
 cookie = os.getenv("cookie")
-QYWX_CORPID = os.getenv("QYWX_CORPID")
-QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET")
-QYWX_AGENTID = os.getenv("QYWX_AGENTID")
-QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID")
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 headers = {'cookie': cookie,
@@ -21,5 +17,9 @@ msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
 if not cookie:
     print('cookie为空')
+QYWX_CORPID = os.getenv("QYWX_CORPID")
+QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET")
+QYWX_AGENTID = os.getenv("QYWX_AGENTID")
+QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID")
 wn = WxNotify(corpid=QYWX_CORPID, corpsecret=QYWX_CORPSECRET, agentid=QYWX_AGENTID, media_id=QYWX_MEDIA_ID)
 wn.send('52破解签到信息', msg)
