@@ -31,5 +31,7 @@ jobs:
         ${cookie}
         ${qywx_key}        
         EOF
-      env:
-      cas:'1'
+        env:
+          cas: sac
+        
+        
