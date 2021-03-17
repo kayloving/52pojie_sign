@@ -17,10 +17,14 @@ req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
-QYWX_CORPID = os.getenv("QYWX_CORPID").stirp()
-QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET").stirp()
-QYWX_AGENTID = os.getenv("QYWX_AGENTID").stirp()
-QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID").stirp()
+QYWX_CORPID = ""
+QYWX_CORPSECRET = ""
+QYWX_AGENTID = ""
+QYWX_MEDIA_ID = ""
+# QYWX_CORPID = os.getenv("QYWX_CORPID").stirp()
+# QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET").stirp()
+# QYWX_AGENTID = os.getenv("QYWX_AGENTID").stirp()
+# QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID").stirp()
 print(QYWX_MEDIA_ID)
 wn = WxNotify(corpid=QYWX_CORPID, corpsecret=QYWX_CORPSECRET, agentid=QYWX_AGENTID, media_id=QYWX_MEDIA_ID)
 wn.send('52破解签到信息', msg)
