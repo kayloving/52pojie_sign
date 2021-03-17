@@ -17,9 +17,8 @@ req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 msg = '52破解签到信息' + '\n' + msg
-print(msg)
-requests.post(
+rea = requests.post(
         url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}",
         data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
     )
-
+print(rea.text())
