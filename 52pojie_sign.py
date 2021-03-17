@@ -5,8 +5,6 @@ import json
 
 
 cookie = ""
-if not cookie:
-    cookie = input('cookie')
 qywx_key = ""
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
@@ -17,8 +15,9 @@ req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 msg = '52破解签到信息' + '\n' + msg
+print(msg)
 rea = requests.post(
         url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}",
         data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
     )
-print(rea.text())
+print(rea.text)
