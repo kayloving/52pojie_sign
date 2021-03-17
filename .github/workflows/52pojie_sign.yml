@@ -28,14 +28,8 @@ jobs:
     - name: 签到       
       run: |
         cookie='${{ secrets.COOKIE }}'
-        QYWX_CORPID='${{ secrets.QYWX_CORPID }}' 
-        QYWX_CORPSECRET='${{ secrets.QYWX_CORPSECRET }}'  
-        QYWX_AGENTID='${{ secrets.QYWX_AGENTID }}'  
-        QYWX_MEDIA_ID='${{ secrets.QYWX_MEDIA_ID }}'  
+        qywx_key='${{ secrets.QYWX_KEY }}' 
         python 52pojie_sign.py <<EOF
         ${cookie}
-        ${QYWX_CORPID}
-        ${QYWX_CORPSECRET}
-        ${QYWX_AGENTID}
-        ${QYWX_MEDIA_ID}  
+        ${qywx_key}        
         EOF
