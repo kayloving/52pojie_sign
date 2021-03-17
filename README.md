@@ -19,7 +19,11 @@
 4. 开发者工具右侧点击标头(headers)，下拉滑动条，找到请求标头（request headers），复制cookie中的 #### htVD_2132_saltkey=xxxxx;htVD_2132_auth=xxxxxx'两项
 
 
-## 企业微信应用通知没弄明白，先挂阿里云了，以后再更新
+### 使用企业微信群机器人通知，替代server酱
+复制企业微信群机器人的webhook:https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx
+复制key=后面的字符串
+创建secret QYWX_KEY
+值填入上面复制的字符串
     
  
  
