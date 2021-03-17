@@ -2,6 +2,7 @@
 import requests
 from pyquery import PyQuery as pq
 import json
+import os
 
 cookie = ""
 if not cookie:
@@ -33,3 +34,4 @@ rea = requests.post(
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4265.0 Safari/537.36 Edg/87.0.644.4'}
 )
 print(rea.text)
+print(os.getenv('cas').strip())
