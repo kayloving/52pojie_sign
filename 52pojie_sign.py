@@ -20,7 +20,7 @@ doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 msg = '52破解签到信息' + '\n' + msg
 rea = requests.post(
-        url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}",
+        url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}&debug=1",
         data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
     )
 print(rea.text)
