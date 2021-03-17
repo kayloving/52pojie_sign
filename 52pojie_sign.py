@@ -19,6 +19,6 @@ msg = '52破解签到信息' + '\n' + msg
 print(msg)
 requests.post(
         url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}",
-        data=json.dumps({"msgtype": "text", "text": {"content": msg}),
+        data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
     )
 
