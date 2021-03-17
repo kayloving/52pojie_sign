@@ -1,13 +1,12 @@
 # -- coding: utf-8 --
 import requests
 from pyquery import PyQuery as pq
-from QYWX_Notify import WxNotify
-import os
 
 
 cookie = ""
 if not cookie:
     cookie = input('cookie')
+qywx_key = ""
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 headers = {'cookie': cookie,
@@ -16,15 +15,10 @@ requests.get(url1, headers=headers)
 req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
+msg = '52破解签到信息' + '\n' + msg
 print(msg)
-QYWX_CORPID = ""
-QYWX_CORPSECRET = ""
-QYWX_AGENTID = ""
-QYWX_MEDIA_ID = ""
-# QYWX_CORPID = os.getenv("QYWX_CORPID").stirp()
-# QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET").stirp()
-# QYWX_AGENTID = os.getenv("QYWX_AGENTID").stirp()
-# QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID").stirp()
-print(QYWX_MEDIA_ID)
-wn = WxNotify(corpid=QYWX_CORPID, corpsecret=QYWX_CORPSECRET, agentid=QYWX_AGENTID, media_id=QYWX_MEDIA_ID)
-wn.send('52破解签到信息', msg)
+requests.post(
+        url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}",
+        data=json.dumps({"msgtype": "text", "text": {"content": msg),
+    )
+
