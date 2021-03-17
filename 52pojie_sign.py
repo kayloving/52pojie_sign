@@ -17,10 +17,18 @@ headers = {'cookie': cookie,
 requests.get(url1, headers=headers)
 req = requests.get(url, headers=headers).text
 doc = pq(req)
-msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
-msg = '52破解签到信息' + '\n' + msg
+un = doc('.vwmy a').text()
+msg = doc('#messagetext p').text()
+if '不是进行中的任务' in msg:
+    msg = '今日已签到'
+elif '恭喜' in msg:
+    msg = '签到成功'
+else:
+    msg = '签到失败，请检查cookie或稍后重试'
+msg = '52破解签到信息' + '\n' +un +'\t' + msg
 rea = requests.post(
         url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}&debug=1",
         data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4265.0 Safari/537.36 Edg/87.0.644.4'}
     )
-print(rea.text)
+print(rea.text)   
