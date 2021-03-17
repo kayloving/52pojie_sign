@@ -22,6 +22,6 @@ QYWX_CORPID = os.getenv("QYWX_CORPID")
 QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET")
 QYWX_AGENTID = os.getenv("QYWX_AGENTID")
 QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID")
-print(QYWX_MEDIA_ID）
+print(QYWX_MEDIA_ID)
 wn = WxNotify(corpid=QYWX_CORPID, corpsecret=QYWX_CORPSECRET, agentid=QYWX_AGENTID, media_id=QYWX_MEDIA_ID)
 wn.send('52破解签到信息', msg)
