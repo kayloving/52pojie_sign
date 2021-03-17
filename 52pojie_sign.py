@@ -2,23 +2,14 @@
 import requests
 from pyquery import PyQuery as pq
 from QYWX_Notify import WxNotify
+import os
 
 
-cookie = ""
-if not cookie:
-    cookie = input("cookie")
-QYWX_CORPID = ""
-if not QYWX_CORPID:
-    QYWX_CORPID = input("QYWX_CORPID")
-QYWX_CORPSECRET = ""
-if not QYWX_CORPSECRET:
-    QYWX_CORPSECRET = input("QYWX_CORPSECRET")
-QYWX_AGENTID = ""
-if not QYWX_AGENTID:
-    QYWX_AGENTID = input("QYWX_AGENTID")
-QYWX_MEDIA_ID = ""
-if not QYWX_MEDIA_ID:
-    QYWX_MEDIA_ID = input("QYWX_MEDIA_ID")
+cookie = os.getenv("cookie")
+QYWX_CORPID = os.getenv("QYWX_CORPID")
+QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET")
+QYWX_AGENTID = os.getenv("QYWX_AGENTID")
+QYWX_MEDIA_ID = os.getenv("QYWX_MEDIA_ID")
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 headers = {'cookie': cookie,
