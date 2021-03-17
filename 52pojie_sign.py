@@ -5,8 +5,9 @@ from QYWX_Notify import WxNotify
 import os
 
 
-cookie = os.getenv("cookie")
-print(cookie)
+cookie = ""
+if not cookie:
+    cookie = input('cookie')
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 headers = {'cookie': cookie,
@@ -16,8 +17,6 @@ req = requests.get(url, headers=headers).text
 doc = pq(req)
 msg = doc('.vwmy a').text() + '\t' + doc('#messagetext p').text()
 print(msg)
-if not cookie:
-    print('cookie为空')
 QYWX_CORPID = os.getenv("QYWX_CORPID")
 QYWX_CORPSECRET = os.getenv("QYWX_CORPSECRET")
 QYWX_AGENTID = os.getenv("QYWX_AGENTID")
