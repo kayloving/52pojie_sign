@@ -1,7 +1,7 @@
 # -- coding: utf-8 --
 import requests
 from pyquery import PyQuery as pq
-from .QYWX_Notify import WxNotify
+from QYWX_Notify import WxNotify
 
 
 cookie = ""
