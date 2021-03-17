@@ -10,7 +10,7 @@ if not cookie:
 qywx_key = ""
 if not qywx_key:
     qywx_key = input('')
-print(qywx_key[:6])
+
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 url2 = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 headers = {'cookie': cookie,
@@ -35,4 +35,4 @@ rea = requests.post(
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4265.0 Safari/537.36 Edg/87.0.644.4'}
 )
 print(rea.text)
-print(os.getenv('cas').strip())
+print(qywx_key[:6])
