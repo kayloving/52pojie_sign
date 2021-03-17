@@ -5,7 +5,11 @@ import json
 
 
 cookie = ""
+if not cookie:
+    cookie = input('cookie')
 qywx_key = ""
+if not qywx_key:
+    qywx_key = input('qywx_key')
 url = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 headers = {'cookie': cookie,
