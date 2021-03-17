@@ -10,6 +10,7 @@ if not cookie:
 qywx_key = ""
 if not qywx_key:
     qywx_key = input('')
+print(qywx_key[:6])
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 url2 = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 headers = {'cookie': cookie,
