@@ -27,7 +27,7 @@ else:
     msg = '签到失败，请检查cookie或稍后重试'
 msg = '52破解签到信息' + '\n' +un +'\t' + msg
 rea = requests.post(
-        url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}&debug=1",
+        url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?{qywx_key}&debug=1",
         data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4265.0 Safari/537.36 Edg/87.0.644.4'}
     )
