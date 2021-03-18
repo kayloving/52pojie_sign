@@ -23,11 +23,6 @@
 2.分别填入企业ID，secret，agentID，media_id（media_id可填入0，发送文字卡片通知）
 3.[参考文档1](https://note.youdao.com/ynoteshare1/index.html?id=351e08a72378206f9dd64d2281e9b83b&type=note) [参考文档2](https://note.youdao.com/ynoteshare1/index.html?id=1a0c8aff284ad28cbd011b29b3ad0191&type=note)
 
-~~### 使用企业微信群机器人通知，替代server酱
-复制企业微信群机器人的webhook:https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx
-复制key=后面的字符串
-创建secret QYWX_KEY
-值填入上面复制的字符串~~
     
  
  
