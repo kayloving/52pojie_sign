@@ -24,8 +24,6 @@ if '不是进行中的任务' in msg:
     msg = '今日已签到'
 elif '恭喜' in msg:
     msg = '签到成功'
-else:
-    msg = '签到失败，请检查cookie或稍后重试'
 msg = un + '\n' + msg
 wx = WxNotify(corpid, corpsecret, agentid, media_id)
 wx.send('52破解签到信息', msg)
