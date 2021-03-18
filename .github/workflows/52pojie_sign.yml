@@ -25,9 +25,7 @@ jobs:
         pip install -r requirements.txt
     - name: 签到       
       run: |
-        cookie='${{ secrets.COOKIE }}'
-        qywx_key='${{ secrets.QYWX_KEY }}'
-        python3 52pojie_sign.py <<EOF
-        ${cookie}
-        ${qywx_key}        
-        EOF
+        python3 52pojie_sign.py 
+      env:
+        COOKIE:${{ secrets.COOKIE }}
+        QYWX_KEY:${{ secrets.QYWX_KEY }}
