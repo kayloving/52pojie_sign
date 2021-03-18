@@ -4,12 +4,9 @@ from pyquery import PyQuery as pq
 import json
 import os
 
-cookie = ""
-if not cookie:
-    cookie = input('')
-qywx_key = ""
-if not qywx_key:
-    qywx_key = input('')
+cookie = os.getenv("COOKIE").strip()
+qywx_key = os.getenv("QYWX_KEY").strip()
+
 
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 url2 = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
