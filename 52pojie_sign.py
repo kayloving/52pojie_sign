@@ -3,11 +3,13 @@ import requests
 from pyquery import PyQuery as pq
 import json
 import os
+from QYWX_Notify import WxNotify
 
 cookie = os.getenv("COOKIE").strip()
-qywx_key = os.getenv("QYWX_KEY").strip()
-
-
+corpid = os.getenv("QYWX_CORPID").strip()
+corpsecret = os.getenv("QYWX_CORPSECRET").strip()
+agentid = os.getenv("QYWX_AGENTID").strip()
+media_id = os.getenv("QYWX_MEDIA_ID").strip()
 url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
 url2 = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
 headers = {'cookie': cookie,
@@ -24,12 +26,6 @@ elif '恭喜' in msg:
     msg = '签到成功'
 else:
     msg = '签到失败，请检查cookie或稍后重试'
-msg = '52破解签到信息' + '\n' + un + '\n' + msg
-rea = requests.post(
-    url=f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={qywx_key}",
-    data=json.dumps({"msgtype": "text", "text": {"content": msg}}),
-    headers={
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4265.0 Safari/537.36 Edg/87.0.644.4'}
-)
-print(rea.text)
-print(qywx_key[:6])
+msg = un + '\n' + msg
+wx = WxNotify(corpid, corpsecret, agentid, media_id)
+wx.send('52破解签到信息', msg)
