@@ -29,6 +29,6 @@ jobs:
       env:
         COOKIE: ${{ secrets.COOKIE }}
         QYWX_CORPID: ${{ secrets.QYWX_CORPID }}
-        QYWX_CORPSECRRET: ${{ secrets.QYWX_CORPSECRET }}
+        QYWX_CORPSECRET: ${{ secrets.QYWX_CORPSECRET }}
         QYWX_AGENTID: ${{ secrets.QYWX_AGENTID }}
         QYWX_MEDIA_ID: ${{ secrets.QYWX_MEDIA_ID }}
